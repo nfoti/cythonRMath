@@ -1,5 +1,6 @@
 # Python stuff
 *.pyc
+examples/.ipynb_checkpoints
 
 # Object files
 *.o
