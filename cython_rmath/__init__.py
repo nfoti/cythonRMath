@@ -15,66 +15,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+# This stuff won't really work anymore b/c will have to build Rmath manually
+# and then link to it.
 def get_include():
-    import os
-    import sys
-
-    if sys.platform == "win32":
-        pass
-    elif sys.platform == "linux":
-        # Check R_HOME, then /usr/local/include, /usr/include
-        pass
-    elif sys.platform == "darwin":
-        # Check R_HOME, then /Library/Frameworks/R.Framework/Headers, and
-        # /usr/local/include
-        try:
-            rmath_include = os.environ["R_HOME"] + '/include'
-        except KeyError:
-            rmath_include = "/Library/Frameworks/R.Framework/Headers"
-            if not os.path.isdir(rmath_include):
-                rmath_include = "/usr/local/include"
-                if not os.path.isfile(rmath_include + '/Rmath.h'):
-                    rmath_include = ''
-
-        err_str = "Could not find RMath headers.  \
-                   Use R_HOME to specify location."
-        assert rmath_include != '', err_str
-
-    return rmath_include
-
-
-def get_library_dir():
-    import os
-    import sys
-
-    if sys.platform == "win32":
-        pass
-    elif sys.platform == "linux":
-        # Check R_HOME, then /usr/local/lib, /usr/lib
-        pass
-    elif sys.platform == "darwin":
-        # Check R_HOME, then /Library/Frameworks/R.Framework/Libraries, and
-        # /usr/local/lib
-        try:
-            rmath_lib = os.environ["R_HOME"] + '/lib'
-        except KeyError:
-            rmath_lib = "/Library/Frameworks/R.Framework/Libraries"
-            if not os.path.isdir(rmath_lib):
-                rmath_include = "/usr/local/lib"
-                if not os.path.isfile(rmath_lib + '/libR.dylib'):
-                    rmath_lib = ''
-
-        err_str = "Could not find RMath library directory.  \
-                   Use R_HOME to specify location."
-        assert rmath_lib != '', err_str
-
-    return rmath_lib
-
+    print "You built Rmath, you tell the compiler where the headers are!"
+    print "In setup.py edit the `include_dirs` list to contain the path to ",
+    print "the headers, e.g. 'path/to/Rmath/include'."
 
 def get_libraries():
-    return ['R', 'Rblas', 'Rlapack']
+    print "You built Rmath, you tell the compiler where the libraries are!"
+    print "In setup.py edit the `library_dirs` list to contain the path to ",
+    print "the library, e.g. 'path/to/Rmath/lib'."
 
 
 def get_cython_include_dir():
-    import cython_rmath, os.path
+    import cython_rmath
+    import os.path
     return os.path.split(cython_rmath.__path__[0])[0]
