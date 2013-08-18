@@ -49,7 +49,7 @@ You should be able to call Rmath functions from here on out.
 
 **Compile your module**
 
-Your `setup.py` should look like:
+Your `setup.py` should look like (see `examples/setup.py`):
 
 ``` python
     from distutils.core import setup
@@ -62,8 +62,7 @@ Your `setup.py` should look like:
                     include_dirs = [path_to_Rmath/include, ...],
                     library_dirs = [path_to_Rmath/lib, ...],
                     libraries = ['Rmath', 'm', ...]
-
-
+                   )
 
     setup(cmdclass = ['build_ext': build_ext},
           ext_modules = [ext])

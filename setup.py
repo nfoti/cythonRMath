@@ -5,7 +5,7 @@ from Cython.Distutils import build_ext
 
 setup(
     name="cythonRmath",
-    version="0.0.1",
+    version="0.1",
     author="Nicholas J. Foti",
     author_email="nfoti01@gmail.com",
     url="http://github.com/nfoti/cythonRmath",
