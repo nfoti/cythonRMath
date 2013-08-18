@@ -13,13 +13,5 @@ setup(
     package_data={"cython_rmath": ["*.pxd"]},
     description="""Cython declarations for the Rmath Library.""",
     setup_requires=['Cython >= 0.16'],
-    install_requires=['Cython >= 0.16'],
-    classifiers=[
-                'Development Status :: 4 - Beta',
-                'Environment :: Console',
-                'Operating System :: OS Independent',
-                'Intended Audience :: Science/Research',
-                'License :: OSI Approved :: GNU General Public License (GPL)',
-                'Programming Language :: Python',
-                'Topic :: Scientific/Engineering']
+    install_requires=['Cython >= 0.16']
 )
