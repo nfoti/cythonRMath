@@ -59,6 +59,7 @@ Your `setup.py` should look like (see `examples/setup.py`):
 
     ext = Extension("your_ext",
                     ["your.pyx"],
+                    define_macros=[('MATHLIB_STANDALONE', '1')],
                     include_dirs = [path_to_Rmath/include, ...],
                     library_dirs = [path_to_Rmath/lib, ...],
                     libraries = ['Rmath', 'm', ...]

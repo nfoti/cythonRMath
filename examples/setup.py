@@ -9,6 +9,7 @@ from Cython.Distutils import build_ext
 import cython_rmath
 
 ext = Extension("your_ext", ["your.pyx"],
+                define_macros=[('MATHLIB_STANDALONE', '1')],
                 include_dirs = [path_to_Rmath/include, ...],
                 library_dirs = [path_to_Rmath/lib, ...],
                 libraries = ['Rmath', 'm', ...]
